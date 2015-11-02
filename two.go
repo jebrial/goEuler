@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	sum := 0
+	var i, j, sum uint64
 
-	for i, j := 1, 2; j < 4000000; j, i = j+i, j {
+	for i, j, sum = 1, 2, 0; j < 4000000; j, i = j+i, j {
 		if j%2 == 0 {
 			sum += j
 		}
