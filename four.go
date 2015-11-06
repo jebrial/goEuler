@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	fmt.Println("This number is the largest palindrome: ", findPalindrome(999, 900))
+	fmt.Println("This number is the largest palindrome: ", findLargestPalindrome(999, 900))
 }
 
-func findPalindrome(high, low int) int {
+func findLargestPalindrome(high, low int) int {
 	var palindrome int
 	for i := high; i > low; i-- {
 		for j := high; j > low; j-- {
