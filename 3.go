@@ -10,7 +10,7 @@ func main() {
 }
 
 func getLargestPrimeFactor(number int) int {
-	for i := 2; i < number/2; i += 2 {
+	for i := 2; i <= number/2; i += 2 {
 		if number%i == 0 {
 			return getLargestPrimeFactor(number / i)
 		}
