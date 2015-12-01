@@ -20,11 +20,11 @@ func main() {
 	getLargestProduct(intSlice, 4)
 	getLargestProductV2(intSlice, 4)
 	getLargestProductV3(intSlice, 4) //this one reports a spike in time to complete
-	getLargestProductV3(intSlice, 4)
+	getLargestProductV3(intSlice, 4) //this one doesn't
 	//actual
 	getLargestProduct(intSlice, 13)
 	getLargestProductV2(intSlice, 13)
-	getLargestProductV3(intSlice, 13)
+	getLargestProductV3(intSlice, 13) // nor does this
 }
 
 func getLargestProduct(intSlice []int, increment int) {
