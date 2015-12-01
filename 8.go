@@ -13,14 +13,18 @@ func main() {
 	fileOpen, _ := os.Open("8.dat")
 	b1 := make([]byte, 1000)
 	fileOpen.Read(b1)
+	start := time.Now()
 	intSlice := convertToIntSlice(b1)
-
-	//test should equal
+	fmt.Println("Finished converting string in: ", time.Since(start))
+	//test- should equal 5832
 	getLargestProduct(intSlice, 4)
 	getLargestProductV2(intSlice, 4)
+	getLargestProductV3(intSlice, 4) //this one reports a spike in time to complete
+	getLargestProductV3(intSlice, 4)
 	//actual
 	getLargestProduct(intSlice, 13)
 	getLargestProductV2(intSlice, 13)
+	getLargestProductV3(intSlice, 13)
 }
 
 func getLargestProduct(intSlice []int, increment int) {
@@ -43,6 +47,7 @@ func getLargestProduct(intSlice []int, increment int) {
 	}
 	fmt.Printf("The greatest product is: %d  After %s \n", top, time.Since(start))
 }
+
 func getLargestProductV2(intSlice []int, increment int) {
 	start := time.Now()
 	top, next := 1, 1
@@ -57,6 +62,27 @@ func getLargestProductV2(intSlice []int, increment int) {
 	}
 	fmt.Printf("The greatest product is: %d  After %s \n", top, time.Since(start))
 }
+
+func getLargestProductV3(intSlice []int, increment int) {
+	start := time.Now()
+	top := getLargestProductRecursive(intSlice, increment, 0, 0)
+	fmt.Printf("The greatest product is: %d  After %s \n", top, time.Since(start))
+}
+
+func getLargestProductRecursive(intSlice []int, increment int, start int, prevTop int) int {
+	temp := 1
+	for i := start; i < increment; i++ {
+		temp *= intSlice[i]
+	}
+	if temp > prevTop {
+		prevTop = temp
+	}
+	if increment == len(intSlice) {
+		return prevTop
+	}
+	return getLargestProductRecursive(intSlice, increment+1, start+1, prevTop)
+}
+
 func convertToIntSlice(b []byte) []int {
 	var intSlice []int
 	for _, e := range b {
