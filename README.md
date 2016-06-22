@@ -10,5 +10,8 @@ You can view all the problems here: [https://projecteuler.net/archives](https://
 
 To learn more about golang you can go here: [https://golang.org/](https://golang.org/)
 
-** To run:
-From terminal: go run *.go
+## To run:
+From terminal:
+```sh
+go test -v
+```
