@@ -11,8 +11,10 @@ import (
 	"time"
 )
 
+const limit = 2000000
+
 func main() {
-	count, sum := 2000000, 2
+	count, sum := limit, 2
 	start := time.Now()
 	for count > 0 {
 		if count%2 == 0 {
